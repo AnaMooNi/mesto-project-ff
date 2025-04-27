@@ -4,7 +4,7 @@
 // @todo: Функция удаления карточки
 // @todo: Вывести карточки на страницу
 import { initialCards } from './components/cards.js';
-import { addCard, toggleLike, deleteCard } from './components/card.js';
+import { addCard, toggleLike, deleteCard} from './components/card.js';
 import './pages/index.css';
 import { openPopup, closePopup } from './components/modal.js';
 
@@ -34,7 +34,7 @@ const jobInput = document.querySelector('.popup__input_type_description');
 
 const imageInPopup = popupImage.querySelector('.popup__image');
 const captionInPopup = popupImage.querySelector('.popup__caption');
- 
+
 //Открытие модального окна редактора профиля
 editProfileButton.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
@@ -48,12 +48,12 @@ addCardButton.addEventListener('click', () => {
  });
 
 //Открытие модального окна картинки
-const openImg = () => {
-  captionInPopup.textContent = document.querySelector('.card__title').textContent;
-  imageInPopup.src = document.querySelector('.card__image').src;
-  popupImage.alt = document.querySelector('.card__image').alt
+const openImg = (name, link) => {
+  captionInPopup.textContent = name;
+  imageInPopup.src = link;
+  imageInPopup.alt = name; 
   openPopup(popupImage);
-  };
+};
 
 //Закрытие модальных окон на крестик
 closeButtons.forEach((button) => {
@@ -64,17 +64,16 @@ closeButtons.forEach((button) => {
 });
 
 // Обработчик «отправки» формы
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   if ((nameInput.value.length > 0) && (jobInput.value.length > 0)) {
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
-  evt.target.reset();
   };
   closePopup(popupEditProfile) ;
 };
 
-formEditElement.addEventListener('submit', handleFormSubmit);
+formEditElement.addEventListener('submit', handleProfileFormSubmit);
 
 //Добавление карточки
 function handleAddCardSubmit(evt) {
