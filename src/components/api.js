@@ -36,14 +36,11 @@ const editProfile = (userProfileName, userProfileAbout) => {
   }).then((res) => checkResponse(res));
 };
 
-const addNewCard = (nameCard, linkCard) => {
+const addNewCard = (newCard) => {
   return fetch(`${config.baseUrl}/cards`, {
-    method: "POST",
+    method: 'POST',
     headers: config.headers,
-    body: JSON.stringify({
-      name: nameCard,
-      link: linkCard,
-    }),
+    body: JSON.stringify(newCard),
   }).then((res) => checkResponse(res));
 };
 

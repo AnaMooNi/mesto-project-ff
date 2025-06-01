@@ -32,7 +32,7 @@ function createCard(cardContent, toggleLike, showImagePopup, userId, handleCardD
   };
 
   if (cardContent.owner._id !== userId) {
-    deleteButton.classList.add('card__delete-button_unactive');
+    deleteButton.classList.add('card__delete-button_hidden');
   } else {
     deleteButton.addEventListener('click', () => {
       handleCardDelete(cardId, cardElement);

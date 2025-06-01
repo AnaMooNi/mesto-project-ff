@@ -18,11 +18,4 @@ const handleEscKeyUp = (e) => {
   }
 };
 
-//Закрытие на оверлей
-const closePopupOverlay = (evt) => {
-  if (evt.target === evt.currentTarget) {
-    closePoup(evt.currentTarget);
-  }
-};
-
-export { openPoup, closePoup };
+export { openPoup, closePoup};
