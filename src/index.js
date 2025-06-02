@@ -151,11 +151,12 @@ const handleNewCardFormSubmit = (evt) => {
   const link = linkInput.value;
 
   showLoading(true, evt.submitter);
+
   addNewCard({ name, link })
     .then((card) => {
-      const newCard = createCard( card, deleteCard, putLike, deleteLike, showImagePopup, userId);
+      const newCard = createCard( card, toggleLike, showImagePopup, userId, handleCardDelete);
       placesList.prepend(newCard);
-      closePoup();
+      closePoup(popupAddCard);
       addCardForm.reset();
     })
     .catch((err) => console.log(err))

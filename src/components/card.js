@@ -10,6 +10,7 @@ function createCard(cardContent, toggleLike, showImagePopup, userId, handleCardD
   const cardTitle = cardElement.querySelector('.card__title');
   const deleteButton = cardElement.querySelector('.card__delete-button');
   const likeButton = cardElement.querySelector('.card__like-button');
+  
   likeButton.addEventListener('click', () => {
     toggleLike(cardId, likeButton, likeCounter);
   });
